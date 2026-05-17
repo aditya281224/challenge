@@ -1,10 +1,25 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
-const Navbar = (props) => {
+const Navbar = ({modify}) => {
+  const navigate = useNavigate();
 
-  const navItems = ["Home","Collection","About","Contact"]
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Collection", path: "/collection" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
 
- 
+   function navHandler(path) {
+    if (!modify) {
+      toast.error("Click Modify Working first ");
+      return;
+    }
+
+    navigate(path);
+  }
   return (
     <nav className='fixed left-0 top-0 z-40 w-full border-b border-cyan-500/10 bg-black/70 px-10 py-4 text-white backdrop-blur-xl'>
 
@@ -30,10 +45,12 @@ const Navbar = (props) => {
           {
             navItems.map((item) => (
               <button
-                key={item}
+                key={item.name}
+                onClick={() => navHandler(item.path)}
+
                 className='text-slate-300 transition-all duration-300 hover:scale-110 hover:text-cyan-400'
               >
-                {item}
+                {item.name}
               </button>
             ))
           }
