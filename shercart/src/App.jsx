@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {data} from "./data"
+import {data} from "../src/DummyData/data"
 import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -23,7 +23,7 @@ function App() {
   }
   return (
     <div className="min-h-screen bg-[#050816] pt-24 text-white">
-      {step>=1 && <Navbar/>}
+      {step>=1 && <Navbar step={step}/>}
       {step>=2 && <Hero/>}
       {step>=3 && <Collection/>}
       {step>=4 && <BestSeller/>}

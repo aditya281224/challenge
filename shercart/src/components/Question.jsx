@@ -16,7 +16,7 @@ const Question = (props) => {
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center'>
-      <div className='w-[500px] rounded-2xl border border-orange-500 bg-[#0f172a] p-8 text-white shadow-2xl'>
+      <div className='w-[500px] rounded-2xl border  border-cyan-400/20 bg-[#0f172a]/70 p-8 text-white shadow-2xl backdrop-blur-xl'>
         <h1 className='mb-3 text-center text-3xl font-bold text-orange-400'>SherCart Challenge</h1>
 
 
