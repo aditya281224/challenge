@@ -31,7 +31,7 @@ function App() {
     toast.success("Now you can visit other pages")
   }
   return (
-    <div className="min-h-screen bg-[#050816] pt-24 text-white">
+    <div className="min-h-screen bg-[#050816] text-white">
       {step>=1 && <Navbar modify={modify}/>}
       {!modify && <Home step={step}/>}
 

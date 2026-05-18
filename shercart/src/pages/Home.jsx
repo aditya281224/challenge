@@ -4,7 +4,7 @@ import BestSeller from "../components/BestSeller";
 
 const Home = ({step}) => {
   return (
-    <div>
+    <div className="pb-32">
       {step>=2 && <Hero/>}
       {step>=3 && <Collection/>}
       {step>=4 && <BestSeller/>}
