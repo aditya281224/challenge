@@ -9,11 +9,21 @@ import Contact from "../src/pages/Contact"
 import CollectionPage from "../src/pages/CollectionPage"
 import toast from "react-hot-toast"
 import { Routes, Route } from "react-router-dom";
+import Cart from './pages/Cart'
+import { useNavigate } from "react-router-dom";
 
 
 function App() {
+  const navigate = useNavigate()
   const [step, setStep] = useState(0)
   const [modify,setModify] = useState(false)
+
+  const [cart, setCart] = useState([]);
+
+  function addToCart(item) {
+    setCart((prev) => [...prev, item]);
+    toast.success("Item added to cart");
+  }
 
   function correctAnswer(){
     toast.success("Correct Answer")
@@ -23,6 +33,8 @@ function App() {
   function wrongAnswer(){
     setStep(0)
     setModify(false)
+    navigate("/")
+    setCart([])
     toast.error("Wrong answer. Start Again")
   }
 
@@ -32,15 +44,17 @@ function App() {
   }
   return (
     <div className="min-h-screen bg-[#050816] text-white">
-      {step>=1 && <Navbar modify={modify}/>}
+      {step>=1 && <Navbar modify={modify} cartCount={cart.length}/>}
       {!modify && <Home step={step}/>}
 
        {modify && (
         <Routes>
           <Route path="/" element={<Home step={step} />} />
-          <Route path="/collection" element={<CollectionPage />} />
+          <Route path="/collection" element={<CollectionPage addToCart={addToCart} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart cart={cart} wrongAnswer={wrongAnswer} />}
+/>
         </Routes>
       )}
 

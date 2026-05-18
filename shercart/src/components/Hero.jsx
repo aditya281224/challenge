@@ -17,7 +17,7 @@ const Hero = () => {
 
   
   return (
-<section className="relative mx-auto flex min-h-[80vh] max-w-7xl items-center gap-12 overflow-hidden px-10 py-16 border border-cyan-400/10 bg-[#020817] px-10 py-16 shadow-2xl">
+<section className="relative mx-auto flex min-h-[80vh] max-w-7xl items-center gap-12 overflow-hidden px-10 py-16 pt-25 border border-cyan-400/10 bg-[#020817] px-10 py-16 shadow-2xl">
 
 
   <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl"></div>

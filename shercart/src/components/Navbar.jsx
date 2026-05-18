@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const Navbar = ({modify}) => {
+const Navbar = ({modify,cartCount}) => {
   const navigate = useNavigate();
 
   const navItems = [
@@ -58,8 +58,11 @@ const Navbar = ({modify}) => {
 
         <button
          className="rounded-full border border-cyan-400/20 bg-[#0f172a] px-5 py-2 text-sm font-bold text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 hover:bg-cyan-400 hover:text-black"
+         onClick={()=>navHandler("/cart")}
         >
-          Cart
+          Cart {cartCount>0 && <span className="ml-2 rounded-full bg-cyan-400 px-2 py-0.5 text-black">
+  {cartCount}
+</span>}
         </button>
 
       </div>

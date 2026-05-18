@@ -1,12 +1,13 @@
 import React from 'react'
 import toast from "react-hot-toast";
-
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
-
+const navigate = useNavigate();
   function submitHandler(e){
     e.preventDefault()
     toast.error("Abe chall......")
+     navigate("/")
   }
 
   return (

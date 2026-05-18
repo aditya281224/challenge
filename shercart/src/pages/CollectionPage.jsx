@@ -1,10 +1,10 @@
 import React from 'react'
 import Cards from '../components/Cards'
 
-const CollectionPage = () => {
+const CollectionPage = ({addToCart}) => {
   return (
-    <div>
-      <Cards/>
+    <div className='pt-25'>
+      <Cards addToCart={addToCart}/>
     </div>
   )
 }

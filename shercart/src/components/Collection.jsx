@@ -1,10 +1,16 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { collections } from '../DummyData/collections'
 const Collection = () => {
 
  
+  const navigate = useNavigate();
+
+  function navigateHandler(){
+    navigate("/collection")
+  } 
   return (
-    <section>
+    
       <section className="mx-auto mt-24 max-w-7xl rounded-[50px] border border-cyan-400/10 bg-[#07111f] px-10 py-20 shadow-2xl">
   <div className="mb-10 text-center">
     <p className="mb-3 text-4xl uppercase tracking-[4px] text-cyan-400">
@@ -45,12 +51,12 @@ const Collection = () => {
   </div>
 
   <div className="mt-10 flex justify-center">
-    <button className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-8 py-4 font-bold text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:text-black">
+    <button onClick={navigateHandler} className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-8 py-4 font-bold text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:text-black">
       Explore More
     </button>
   </div>
 </section>
-    </section>
+    
   )
 }
 

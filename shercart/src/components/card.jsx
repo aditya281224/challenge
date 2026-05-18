@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import toast from "react-hot-toast";
 
 const card = (props) => {
   
+
+  const [selectedSize, setSelectedSize] = useState("")
+
+  function addToCartHandler(){
+    if(!selectedSize){
+        toast.error("Select size first ");
+      return;
+    }
+
+    const cartItem = {
+      name:props.name,
+      price:props.price,
+      image:props.image,
+      selectedSize:selectedSize
+    }
+
+    props.addToCart(cartItem)
+  }
+
+
   return (
     <div className="group overflow-hidden rounded-[35px] border border-cyan-400/10 bg-[#0f172a]/80 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30">
     
@@ -25,7 +46,17 @@ const card = (props) => {
               {
                 props.size.map((item,idx)=>(
                   <span  key={idx}
-                    className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1 text-sm text-cyan-300">
+                  onClick={() => setSelectedSize(item)}
+                    className={`rounded-full px-4 py-2 text-sm transition-all duration-300
+
+              ${
+                selectedSize === item
+                  ? "bg-cyan-400 text-black"
+                  : "border border-cyan-400/20 bg-cyan-400/10 text-cyan-300"
+              }
+            `}
+
+                    >
                    
                     {item}
                   </span>
@@ -34,7 +65,11 @@ const card = (props) => {
             </div>
             <div className="mt-6 flex items-center justify-between">
               <p className="text-2xl font-black text-white">₹{props.price}</p>
-              <button className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-2 font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-400 hover:text-black">Add</button>
+             
+             
+              <button className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-2 font-semibold text-cyan-300 transition-all duration-300 hover:bg-cyan-400 hover:text-black"
+              onClick={addToCartHandler}
+              >Add</button>
             </div>
           </div>
        
