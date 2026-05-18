@@ -69,12 +69,14 @@ const Cart = ({ cart,wrongAnswer }) => {
     <p className="text-2xl font-black text-cyan-400">₹{totalPrice()}</p>
   </div>
 
-  <button
+  <div  className="mt-6 flex justify-center">
+    <button
     onClick={wrongAnswer}
-    className="mt-6 w-full rounded-full bg-cyan-400 px-8 py-3 font-bold text-black"
+    className="ounded-full bg-cyan-400 px-16 py-3 font-bold text-black transition-all duration-300 hover:scale-105"
   >
     Place Order
   </button>
+  </div>
 </div>
 
     </section>
